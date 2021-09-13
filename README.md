@@ -19,13 +19,10 @@ n a Laravel application's config/app.php configuration file, the providers optio
 To enable a class or object for workflow management some configurations are required:
 - implements WorkflowStoreInterface
 - uses HasWorkflow trait
-- state property
 
 		class Subject implements WorkflowStoreInterface
 		{ 
 		    use HasWorkflow;
-
-		    protected $state;
 		}
 
 
