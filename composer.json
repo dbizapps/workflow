@@ -1,6 +1,6 @@
 {
     "name": "dbizapps/workflow",
-    "description": "Workflow component, heavily inspired by Symfony Workflow",
+    "description": "Manages classes/objects workflow state",
     "type": "library",
     "license": "MIT",
     "authors": [

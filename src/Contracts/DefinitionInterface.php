@@ -11,9 +11,9 @@
 
 namespace dbizapps\Workflow\Contracts;
 
-use dbizapps\Workflow\Models\State;
-use dbizapps\Workflow\Models\Listener;
-use dbizapps\Workflow\Models\Transition;
+use dbizapps\Workflow\State;
+use dbizapps\Workflow\Listener;
+use dbizapps\Workflow\Transition;
 
 interface DefinitionInterface
 {
@@ -38,7 +38,7 @@ interface DefinitionInterface
      * @param  State  $state 
      * @return void
      */
-    public function addState( State $state );
+    public function addState(State $state);
 
     /**
      * Get Workflow States
@@ -46,7 +46,7 @@ interface DefinitionInterface
      * @param string  $state
      * @return string
      */
-    public function getStates( $state = null );
+    public function getStates($state = null);
 
     /**
      * Get Initial Workflow State
@@ -61,7 +61,7 @@ interface DefinitionInterface
      * @param  Transition  $transition 
      * @return void
      */
-    public function addTransition( Transition $transition );
+    public function addTransition(Transition $transition);
 
     /**
      * Get Workflow Transitions
@@ -69,7 +69,7 @@ interface DefinitionInterface
      * @param string  $transition
      * @return string
      */
-    public function getTransitions( $transition = null );
+    public function getTransitions($transition = null);
 
     /**
      * Get Workflow Events
@@ -84,7 +84,7 @@ interface DefinitionInterface
      * @param  Listener  $subscriber 
      * @return void
      */
-    public function addListener( Listener $subscriber );
+    public function addListener(Listener $subscriber);
 
     /**
      * Get Workflow Subscribers

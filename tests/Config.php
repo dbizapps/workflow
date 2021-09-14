@@ -5,7 +5,7 @@ namespace Tests;
 use Tests\EventDispatcher;
 use Tests\Subject1;
 use Tests\Subject;
-use dbizapps\Workflow\Models\Workflow;
+use dbizapps\Workflow\Workflow;
 
 return [
     'WF_config' => [

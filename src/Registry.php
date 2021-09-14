@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace dbizapps\Workflow\Models;
+namespace dbizapps\Workflow;
 
 use dbizapps\Workflow\Contracts\WorkflowInterface;
 use dbizapps\Workflow\Contracts\WorkflowStoreInterface;

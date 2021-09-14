@@ -9,19 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace dbizapps\Workflow\Models;
+namespace dbizapps\Workflow;
 
-use dbizapps\Workflow\Contracts\EventDispatcherInterface;
+use Psr\Log\LoggerInterface;
+use dbizapps\Workflow\Condition;
 use dbizapps\Workflow\Contracts\DefinitionInterface;
+use dbizapps\Workflow\Contracts\EventDispatcherInterface;
 use dbizapps\Workflow\Contracts\WorkflowInterface;
-use dbizapps\Workflow\Events\EnteredEvent;
 use dbizapps\Workflow\Events\EnterEvent;
+use dbizapps\Workflow\Events\EnteredEvent;
 use dbizapps\Workflow\Events\LeaveEvent;
 use dbizapps\Workflow\Events\TransitionEvent;
 use dbizapps\Workflow\Exceptions\TransitionException;
-use dbizapps\Workflow\Models\Condition;
-use dbizapps\Workflow\Models\TransitionBlocker;
-use Psr\Log\LoggerInterface;
+use dbizapps\Workflow\Transition;
+use dbizapps\Workflow\TransitionBlocker;
 
 class Workflow implements WorkflowInterface
 {

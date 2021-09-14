@@ -3,8 +3,8 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use dbizapps\Workflow\Models\Definition;
-use dbizapps\Workflow\Models\Transition;
+use dbizapps\Workflow\Definition;
+use dbizapps\Workflow\Transition;
 use \LogicException;
 
 class DefinitionTest extends TestCase

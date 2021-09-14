@@ -6,10 +6,10 @@ use PHPUnit\Framework\TestCase;
 use Tests\EventDispatcher;
 use Tests\Subject;
 use Tests\WorkflowBuilderTrait;
-use dbizapps\Workflow\Models\Definition;
-use dbizapps\Workflow\Models\Listener;
-use dbizapps\Workflow\Models\Transition;
-use dbizapps\Workflow\Models\Workflow;
+use dbizapps\Workflow\Definition;
+use dbizapps\Workflow\Listener;
+use dbizapps\Workflow\Transition;
+use dbizapps\Workflow\Workflow;
 use dbizapps\Workflow\Traits\HasWorkflow;
 
 class WorkflowListenerTest extends TestCase

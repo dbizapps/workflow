@@ -1,8 +1,9 @@
-/vendor
 .env
 .env.backup
+/vendor
+/vendor
 /.vscode
-.phpunit.cache
+/.phpunit.cache
 .phpunit.result.cache
 composer.lock
 phpunit.xml.bak

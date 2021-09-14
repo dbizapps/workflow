@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace dbizapps\Workflow\Models;
+namespace dbizapps\Workflow;
 
 class Listener
 {

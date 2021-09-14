@@ -13,7 +13,7 @@ namespace dbizapps\Workflow\Events;
 
 use Psr\EventDispatcher\StoppableEventInterface;
 use dbizapps\Workflow\Contracts\WorkflowInterface;
-use dbizapps\Workflow\Models\Transition;
+use dbizapps\Workflow\Transition;
 
 class Event implements StoppableEventInterface
 {

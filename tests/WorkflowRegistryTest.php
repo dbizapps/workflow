@@ -7,8 +7,8 @@ use Tests\EventDispatcher;
 use Tests\Subject;
 use Tests\WorkflowBuilderTrait;
 use dbizapps\Workflow\Contracts\WorkflowStoreInterface;
-use dbizapps\Workflow\Models\Registry;
-use dbizapps\Workflow\Models\Workflow;
+use dbizapps\Workflow\Registry;
+use dbizapps\Workflow\Workflow;
 use dbizapps\Workflow\Traits\HasWorkflow;
 
 class WorkflowRegistryTest extends TestCase

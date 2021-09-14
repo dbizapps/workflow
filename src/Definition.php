@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace dbizapps\Workflow\Models;
+namespace dbizapps\Workflow;
 
 use dbizapps\Workflow\Contracts\DefinitionInterface;
-use dbizapps\Workflow\Models\Listener;
-use dbizapps\Workflow\Models\State;
-use dbizapps\Workflow\Models\Transition;
+use dbizapps\Workflow\Listener;
+use dbizapps\Workflow\State;
+use dbizapps\Workflow\Transition;
 
 class Definition implements DefinitionInterface
 {
@@ -165,7 +165,7 @@ class Definition implements DefinitionInterface
      * @param  mixed  $state 
      * @return void
      */
-    public function addState($state)
+    public function addState( $state )
     {
         if (! $state instanceof State )
             $state = new State(['name' => $state]);
@@ -277,7 +277,7 @@ class Definition implements DefinitionInterface
      * @param  Transition  $transition 
      * @return void
      */
-    public function addTransition(Transition $transition)
+    public function addTransition( Transition $transition )
     {
         foreach ($transition->getFroms() as $from) {
             if (! $this->hasState($from) )
@@ -382,7 +382,7 @@ class Definition implements DefinitionInterface
      * @param  Listener  $listener 
      * @return void
      */
-    public function addListener(Listener $listener)
+    public function addListener( Listener $listener )
     {
         $this->listeners[] = $listener;
     }

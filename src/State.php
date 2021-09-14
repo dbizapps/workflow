@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace dbizapps\Workflow\Models;
+namespace dbizapps\Workflow;
 
-class Condition
+class State
 {
     /**
      * @var string
@@ -24,55 +24,51 @@ class Condition
     private $description;
 
     /**
-     * @var callable
+     * @var array/null
      */
-    private $callback;
+    private $properties;
+
+    /**
+     * @var array|null
+     */
+    private $context;
 
     /**
      * class constants
      */
-    public const CONDITION_EXCEPTION = 'Invalid condition';
-    public const CONDITION_NAME_EXCEPTION = 'Condition must be given a name';
-    public const CONDITION_CALLBACK_EXCEPTION = 'Condition must be provided as callback';
+    public const STATE_NAME_EXCEPTION = 'Name of state is required. None given';
 
 
     /**
      * Class constructor
      * 
-     * @param mixed|array  $attributes
+     * @param array  $attributes    workflow state attributes
      */
-    public function __construct( $attributes )
+    public function __construct( array $attributes = [] )
     { 
-        if ( !is_array($attributes) && func_num_args() != 2 )
-            throw new \InvalidArgumentException(self::CONDITION_EXCEPTION);
-
-        $attributes = func_num_args() == 2 ? 
-            $this->sanitizeAttributes(func_get_args()) :
-            $this->sanitizeAttributes($attributes) ;
-
         $this->name = $this->setName($attributes);
 
         $this->description = $this->setDescription($attributes);
 
-        $this->callback = $this->setCallback($attributes);
+        $this->properties = $this->setProperties($attributes);
+
+        $this->context = $this->setContext($attributes);
     }
 
 
     /**
-     * Sanitize attributes
+     * Get State
      * 
-     * @param  array  $attributes 
      * @return array
      */
-    private function sanitizeAttributes( $attributes )
+    public function get()
     {
-        if ( array_key_exists('name', $attributes) || array_key_exists('callback', $attributes) )
-            return $attributes;
-
         return [
-            'name' => $attributes[0],
-            'callback' => $attributes[1],
-        ];   
+            'name' => $this->getName(),
+            'description' => $this->getDescription(),
+            'properties' => $this->getProperties(),
+            'context' => $this->getContext(),
+        ];
     }
 
 
@@ -85,7 +81,7 @@ class Condition
     private function setName( array $attributes = [] )
     {
         if ( !isset($attributes['name']) )
-            throw new \InvalidArgumentException(self::CONDITION_NAME_EXCEPTION);
+            throw new InvalidArgumentException(self::STATE_NAME_EXCEPTION);
 
         return $attributes['name'];
     }
@@ -129,20 +125,46 @@ class Condition
 
 
     /**
-     * Set Callback
+     * Set Properties
      * 
      * @param  array  $attributes 
      * @return array|exception
      */
-    private function setCallback( array $attributes = [] )
+    private function setProperties( array $attributes = [] )
     {
-        if (! isset($attributes['callback']) )
-            throw new InvalidArgumentException(self::CONDITION_CALLBACK_EXCEPTION);
+        if ( !isset($attributes['properties']) )
+            return null;
 
-        if (! is_callable($attributes['callback']) )
-            throw new InvalidArgumentException(self::CONDITION_CALLBACK_EXCEPTION);
+        return $attributes['properties'];
+    }
 
-        return $attributes['callback'];
+
+    /**
+     * Get Properties
+     * 
+     * @return array|null
+     */
+    public function getProperties()
+    {
+        return $this->properties;
+    }
+
+
+
+    /**
+     * Set Context
+     * 
+     * @param  array  $attributes 
+     * @return array|exception
+     */
+    private function setContext( array $attributes = [] )
+    {
+        if ( !isset($attributes['context']) )
+            return null;
+
+        $context = is_array($attributes['context']) ? $attributes['context'] : [$attributes['context']];
+
+        return context;
     }
 
 
@@ -151,9 +173,9 @@ class Condition
      * 
      * @return array|null
      */
-    public function getCallback()
+    public function getContext()
     {
-        return $this->callback;
+        return $this->context;
     }
 
 }

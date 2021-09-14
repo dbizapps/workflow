@@ -9,11 +9,10 @@ use dbizapps\Workflow\Events\Event;
 use dbizapps\Workflow\Events\TransitionEvent;
 use dbizapps\Workflow\Exceptions\NotEnabledTransitionException;
 use dbizapps\Workflow\Exceptions\UndefinedTransitionException;
-use dbizapps\Workflow\Models\Definition;
-use dbizapps\Workflow\Models\Transition;
-use dbizapps\Workflow\Models\TransitionBlocker;
-use dbizapps\Workflow\Models\Workflow;
-
+use dbizapps\Workflow\Definition;
+use dbizapps\Workflow\Transition;
+use dbizapps\Workflow\TransitionBlocker;
+use dbizapps\Workflow\Workflow;
 
 class WorkflowEventTest extends TestCase
 {

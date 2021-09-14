@@ -3,9 +3,9 @@
 namespace Tests;
 
 use Tests\Subject;
-use dbizapps\Workflow\Models\Definition;
-use dbizapps\Workflow\Models\Listener;
-use dbizapps\Workflow\Models\Transition;
+use dbizapps\Workflow\Definition;
+use dbizapps\Workflow\Listener;
+use dbizapps\Workflow\Transition;
 
 trait WorkflowBuilderTrait
 {
